@@ -3,15 +3,6 @@ package ltd.k1nd.adventOfCode.y2022.day7
 import cats.implicits._
 
 object InferStructure {
-  case class State(path: Path, directories: Map[Path, Int]) {
-    def withPath(newPath: Path) = State(newPath, directories)
-    def updatePath(update: Path => Path) = State(update(path), directories)
-    def updateDirectories(update: Map[Path, Int] => Map[Path, Int]) =
-      State(path, update(directories))
-  }
-  object State {
-    val Initial: State = State(Path.Root, Map.empty)
-  }
   def infer(actions: Seq[TerminalAction]): Map[Path, Int] = {
     //Does not include sizes of any subdirectories contained
     val uniqueDirectoriesAndTotalFileSizes = actions
@@ -44,4 +35,15 @@ object InferStructure {
         }
       )
       .toMap + (path -> size)
+
+  private case class State(path: Path, directories: Map[Path, Int]) {
+    def withPath(newPath: Path) = State(newPath, directories)
+    def updatePath(update: Path => Path) = State(update(path), directories)
+    def updateDirectories(update: Map[Path, Int] => Map[Path, Int]) =
+      State(path, update(directories))
+  }
+  private object State {
+    val Initial: State = State(Path.Root, Map.empty)
+  }
+
 }
