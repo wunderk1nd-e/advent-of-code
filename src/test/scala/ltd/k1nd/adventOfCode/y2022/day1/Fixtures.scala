@@ -1,20 +1,21 @@
 package ltd.k1nd.adventOfCode.y2022.day1
 
 object Fixtures {
-  val ExampleInput = """1000
-                       |2000
-                       |3000
-                       |
-                       |4000
-                       |
-                       |5000
-                       |6000
-                       |
-                       |7000
-                       |8000
-                       |9000
-                       |
-                       |10000""".stripMargin
+  val ExampleInput =
+    """1000
+      |2000
+      |3000
+      |
+      |4000
+      |
+      |5000
+      |6000
+      |
+      |7000
+      |8000
+      |9000
+      |
+      |10000""".stripMargin
 
   val ExpectedParsedExample = List(
     Elf(List(1000, 2000, 3000)),
