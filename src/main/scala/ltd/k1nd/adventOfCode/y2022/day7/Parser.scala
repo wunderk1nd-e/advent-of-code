@@ -4,7 +4,12 @@ import fastparse._
 import NoWhitespace._
 import cats.implicits.catsSyntaxOptionId
 import TerminalAction._
-import ltd.k1nd.adventOfCode.y2022.day7.TerminalAction.{NavigateToRoot, NavigationAction, OneLevelDown, OneLevelUp}
+import ltd.k1nd.adventOfCode.y2022.day7.TerminalAction.{
+  NavigateToRoot,
+  NavigationAction,
+  OneLevelDown,
+  OneLevelUp
+}
 
 object Parser {
   def whitespace[_: P] = CharIn(" ").rep
